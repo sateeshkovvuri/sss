@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demobranch</title>
+</head>
+<style>
+    .booking{
+        visibility: hidden;
+    }
+    
+</style>
+<body>
+    
+    <button onclick="route();jntuToX=true;" class="jtx">jntu to X</button>
+    <button onclick="route();xToJntu=true" class="xtj">x to jntu</button>
+    <br>
+    <br>
+    <button class="booking" onclick="instantactive()">instant</button>
+    <button class="booking" onclick="nextpage()">booking</button>    
+    <br>
+    <br>
+    <p></p>
+    <script>
+        let instant=false;
+        let jntuToX=false;
+        let xToJntu=false;
+        const bookings= document.querySelectorAll('.booking');
+        
+        function route(){
+           bookings.forEach(elem=>{
+            elem.style.visibility='visible';
+            })
+        }
+        function instantactive(){
+            document.querySelector('.jtx').style.visibility="visible";
+            document.querySelector('.xtj').style.visibility="visible";
+            instant=true;
+            // console.log(location);
+        }
+        function nextpage(){
+            location.href="second.html";
+        }
+        setInterval(()=>{
+            if(instant==true){
+                document.querySelector('p').innerHTML="jntuToX :"+jntuToX+"<br>xToJntu :"+xToJntu;
+            }
+            if(jntuToX==true){
+                xToJntu=false;
+            }
+            
+            // if(xToJntu==true){
+            //     jntuToX=false;
+            // }
+        },1000);
+        
+    </script>
+</body>
+</html>
